@@ -390,8 +390,12 @@ $(window).on('load', function () {
         Shiny.ui.showReportIssueModal()
     });
 
-    $("#stop-all-apps-btn").on('click', function() {
+    $('#stop-all-apps-btn').on('click', function() {
         Shiny.common.onStopAllApps();
+    });
+
+    $('#navbar').on('click', '.btn', function() {
+        $('.navbar-collapse.in').collapse('hide')
     });
 
 });
