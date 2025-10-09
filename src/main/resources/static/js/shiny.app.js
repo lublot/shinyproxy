@@ -365,9 +365,33 @@ $(window).on('load', function () {
         Shiny.common.showAppDetails(e, $this.data("display-name"), $this.data("instance-name"), $this.data("proxy-id"));
     });
 
+    $body.on('click', '.app-details-current-btn', function(e) {
+        Shiny.instances.eventHandlers.showAppDetails()
+    });
+
+    $body.on('click', '.app-stop-current-btn', function(e) {
+        Shiny.instances.eventHandlers.onStopApp()
+    });
+
+    $body.on('click', '.app-pause-current-btn', function(e) {
+        Shiny.instances.eventHandlers.onPauseApp()
+    });
+
     $body.on('click', '.instances-details-btn', function(e) {
         const $this = $(this);
         Shiny.instances.eventHandlers.showAppDetails(e, $this.data("display-name"), $this.data("instance-name"), $this.data("proxy-id"));
+    });
+
+    $body.on('click', '.refresh-page-btn', function(e) {
+        window.location.reload();
+    });
+
+    $body.on('click', '.report-issue-btn', function(e) {
+        Shiny.ui.showReportIssueModal()
+    });
+
+    $("#stop-all-apps-btn").on('click', function() {
+        Shiny.common.onStopAllApps();
     });
 
 });
