@@ -44,17 +44,17 @@
                             <a class="btn btn-primary btn-sm" role="button" data-toggle="collapse" data-target="#navbar-collapse" id="switchInstancesModal-btn"
                                th:if="${page == 'app' && appMaxInstances.get(appName) != 1}">Switch instance</a>
 
-                            <a class="btn btn-primary btn-sm btn-restart-app"
+                            <a class="btn btn-primary btn-sm app-restart-btn"
                                onclick="Shiny.instances.eventHandlers.showAppDetails();"
                                role="button" data-toggle="collapse" data-target="#navbar-collapse"
                                th:if="${page == 'app' && appMaxInstances.get(appName) == 1}">App details</a>
 
-                            <a class="btn btn-primary btn-sm btn-restart-app"
+                            <a class="btn btn-primary btn-sm app-restart-btn"
                                onclick="Shiny.instances.eventHandlers.onRestartInstance();"
                                role="button" data-toggle="collapse" data-target="#navbar-collapse"
                                th:if="${page == 'app' && appMaxInstances.get(appName) == 1}">Restart app</a>
 
-                            <a class="btn btn-primary btn-sm" onclick="Shiny.instances.eventHandlers.onDeleteInstance();"
+                            <a class="btn btn-primary btn-sm" onclick="Shiny.instances.eventHandlers.onStopApp();"
                                role="button" data-toggle="collapse" data-target="#navbar-collapse"
                                th:if="${page == 'app' && appMaxInstances.get(appName) == 1}">Stop app</a>
 

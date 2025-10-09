@@ -100,18 +100,11 @@ Shiny.admin = {
                     data: null,
                     render: function (data, type) {
                         if (type === 'display') {
-                            return `
-                               <div class="btn-group btn-group-xs" style="width: 100px; display:block;" role="group">
-                                    <button type="button" class="btn btn-primary"
-                                            onclick="Shiny.admin.showAppDetails('${data.displayName}', '${data.instanceName}', '${data.proxyId}');">
-                                        Details
-                                    </button>
-                                    <button type="button" class="btn btn-primary"
-                                            onclick="Shiny.instances.eventHandlers.onDeleteInstance(event, '${data.instanceName}', '${data.proxyId}');">
-                                        Stop
-                                    </button>
-                                </div>
-                            `;
+                            return Handlebars.templates.admin_actions({
+                                displayName: data.displayName,
+                                instanceName: data.instanceName,
+                                proxyId: data.proxyId
+                            })
                         }
                         return data;
                     },
