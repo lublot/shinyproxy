@@ -50,10 +50,12 @@ Shiny.admin = {
                 {
                     data: 'server',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'proxyId',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: null,
@@ -61,40 +63,48 @@ Shiny.admin = {
                         if (type === 'display') {
                             return Shiny.ui.formatStatus(data.status);
                         }
-                        return data;
+                        return null;
                     }
                 },
                 {
                     data: 'userId',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'appName',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'instanceName',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'endpoint',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'uptime',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'lastHeartBeat',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'imageName',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: 'imageTag',
                     className: 'admin-monospace',
+                    render: DataTable.render.text(), // xss prevention
                 },
                 {
                     data: null,
@@ -106,7 +116,7 @@ Shiny.admin = {
                                 proxyId: data.proxyId
                             })
                         }
-                        return data;
+                        return null;
                     },
                 },
             ]
