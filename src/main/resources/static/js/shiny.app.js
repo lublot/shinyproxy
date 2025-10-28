@@ -338,4 +338,64 @@ $(window).on('load', function () {
     $('#parameterForm select').on('change', function (e) {
         Shiny.ui.selectChange(e.target);
     });
+
+    const $body = $('body')
+
+    $body.on('click', '.admin-details-btn', function(e) {
+        const $this = $(this);
+        Shiny.admin.showAppDetails($this.data("display-name"), $this.data("instance-name"), $this.data("proxy-id"));
+    });
+
+    $body.on('click', '.app-stop-btn', function(e) {
+        const $this = $(this);
+        Shiny.instances.eventHandlers.onStopApp(e, $this.data("instance-name"), $this.data("proxy-id"));
+    });
+
+    $body.on('click', '.app-pause-btn', function(e) {
+        const $this = $(this);
+        Shiny.instances.eventHandlers.onPauseApp(e, $this.data("instance-name"), $this.data("proxy-id"));
+    });
+
+    $body.on('click', '.app-restart-btn', function(e) {
+        Shiny.instances.eventHandlers.onRestartInstance(e);
+    });
+
+    $body.on('click', '.app-details-btn', function(e) {
+        const $this = $(this);
+        Shiny.common.showAppDetails(e, $this.data("display-name"), $this.data("instance-name"), $this.data("proxy-id"));
+    });
+
+    $body.on('click', '.app-details-current-btn', function(e) {
+        Shiny.instances.eventHandlers.showAppDetails()
+    });
+
+    $body.on('click', '.app-stop-current-btn', function(e) {
+        Shiny.instances.eventHandlers.onStopApp()
+    });
+
+    $body.on('click', '.app-pause-current-btn', function(e) {
+        Shiny.instances.eventHandlers.onPauseApp()
+    });
+
+    $body.on('click', '.instances-details-btn', function(e) {
+        const $this = $(this);
+        Shiny.instances.eventHandlers.showAppDetails(e, $this.data("display-name"), $this.data("instance-name"), $this.data("proxy-id"));
+    });
+
+    $body.on('click', '.refresh-page-btn', function(e) {
+        window.location.reload();
+    });
+
+    $body.on('click', '.report-issue-btn', function(e) {
+        Shiny.ui.showReportIssueModal()
+    });
+
+    $('#stop-all-apps-btn').on('click', function() {
+        Shiny.common.onStopAllApps();
+    });
+
+    $('#navbar').on('click', '.btn', function() {
+        $('.navbar-collapse.in').collapse('hide')
+    });
+
 });
